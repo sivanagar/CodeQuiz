@@ -59,4 +59,11 @@ main h2 {
 .main-question {
     width: 50%;
     align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.result {
+    font-size: 18px;
+    border-top: 3px solid #f1d3a1;
 }
