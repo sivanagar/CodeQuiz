@@ -45,12 +45,14 @@ var questions = [
   },
 ];
 
+var highScore = [];
 var score = 75;
 var questionCount = 0;
 var answerClicked = "";
 
 var clickHandler = function(event) {
   var targetEl = event.target;
+  
   //start button clicked with
   if (targetEl.matches("#start")){
     startQuiz();
@@ -58,6 +60,17 @@ var clickHandler = function(event) {
     //check if the answer correct and show
     var answerId = targetEl.getAttribute("data-answer-id");
     checkAnswer(answerId);
+  } else if(targetEl.matches("#submit")){
+    event.preventDefault();
+    //save high score
+    var initial = document.querySelector("input").value; //get the input
+    var newScore = {
+      initial: initial,
+      score: score
+    };
+    highScore.push(newScore);
+    localStorage.setItem("highScore", JSON.stringify(highScore));
+    //show high score
   }
 };
 
@@ -131,6 +144,18 @@ function endQuiz() {
   showScore.textContent = "Your final score is " + score;
   mainEl.appendChild(showScore);
   //add form element
+  var formEl = document.createElement("form");
+  var initialLabel = document.createElement("label");
+  initialLabel.textContent = "Enter initials:"
+  formEl.appendChild(initialLabel);
+  var initialInput =document.createElement("input");
+  formEl.appendChild(initialInput);
+  var buttonSubmit = document.createElement("button");
+  buttonSubmit.textContent = "Submit";
+  buttonSubmit.id = "submit";
+  formEl.appendChild(buttonSubmit);
+  mainEl.appendChild(formEl);
+
 }
 
 // event listener to button click and call function to start
