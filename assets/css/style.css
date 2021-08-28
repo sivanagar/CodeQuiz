@@ -1,11 +1,18 @@
+:root {
+    --backgroundColor: #ffffff;
+    --textColor: #010001;
+    --secondColor: #7f5df6;
+    --secondTextColor: #010001;
+}
+
 body {
-    background-color: #e6eff6;
+    background-color: var(--backgroundColor);
 }
 
 section {
     max-width: 900px;
     margin: auto;
-    border: 2px solid #548999;
+    border: 2px solid var(--secondColor);
     border-radius: 5px;
 }
 
@@ -15,7 +22,7 @@ header {
     margin: 15px;
 }
 
-main {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,9 +33,10 @@ main {
 h1 {
     font-size: 45px;
     margin-bottom: 10px;
+    color: var(--secondTextColor);
 }
 
-main h2 {
+.main h2 {
     text-align: center;
     font-size: 20px;
     font-weight: 400;
@@ -36,24 +44,28 @@ main h2 {
 
 #start {
     margin-bottom: 50px;
-    background: #f1d3a1;
-    border: 2px solid #f1d3a1;
+    background: var(--secondColor);
+    border: 2px solid var(--secondColor);
     border-radius: 5px;
     font-size: 25px;
     font-weight: 700;
-    color: #548999;
+    color: var(--textColor);
     padding: 15px;
 }
 
 .answer {
-    background: #f1d3a1;
-    border: 2px solid #f1d3a1;
+    background: var(--secondColor);
+    border: 2px solid var(--secondColor);
     border-radius: 5px;
     font-size: 18px;
     /* font-weight: 700; */
-    color: #548999;
+    color: var(--textColor);
     padding: 5px;
     margin: 5px;
+}
+
+.answer:hover, #start:hover, .form button:hover {
+    opacity: 0.7;
 }
 
 .main-question {
@@ -63,7 +75,55 @@ main h2 {
     flex-direction: column;
 }
 
+.main-question h1 {
+    font-size: 30px;
+}
+
+.end-quiz{
+    width: 50%;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+
 .result {
+    font-size: 35px;
+    margin-top: 20px;
+    border-top: 3px solid var(--secondColor);
+    width: 100%;
+    padding: 10px;
+}
+
+.form{
+    margin: 10px 0;
+}
+
+.form label {
+    padding-right: 5px;
+}
+
+.form button {
+    background: var(--secondColor);
+    border: 2px solid var(--secondColor);
+    border-radius: 5px;
+    margin-left: 10px;
+    color: var(--textColor);
+    
+}
+
+.form input:focus{
+    border-color: var(--secondColor)
+}
+
+.btnHS{
+    background: var(--secondColor);
+    border: 2px solid var(--secondColor);
+    border-radius: 5px;
+    margin-left: 10px;
+    color: var(--textColor);
     font-size: 18px;
-    border-top: 3px solid #f1d3a1;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-decoration: none;
 }
