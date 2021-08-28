@@ -47,8 +47,8 @@ var answerClicked = "";
 
 var clickHandler = function (event) {
   var targetEl = event.target;
-  //start button clicked with
-  if (targetEl.matches("#start")) {
+  
+  if (targetEl.matches("#start")) { //start button clicked 
     startQuiz();
   } else if (targetEl.matches(".answer")) {
     //check if the answer correct and show
@@ -61,7 +61,7 @@ var clickHandler = function (event) {
     subTitle.remove();
     var form = document.querySelector("form");
     form.remove();
-    //show high score
+    //open high score page
     window.location = "highScore.html";
   }
 };
@@ -98,14 +98,11 @@ function checkAnswer(id) {
   }
   mainEl.appendChild(answerDisplay);
 
-  //call next question
+  //prepare to call next question
   questionCount++;
   if (questionCount !== questions.length) {
-    for (var i = 0; i < 4; i++) {
-      //remove old answers
-      var oldAnswers = document.querySelector(".answer");
-      oldAnswers.remove();
-    }
+    var oldAnswers = document.querySelectorAll(".answer");
+    oldAnswers.forEach(item => {item.remove()});
     showQuestion(questionCount); //call for next question
   }
 }
